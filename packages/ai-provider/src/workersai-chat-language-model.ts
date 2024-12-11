@@ -258,7 +258,9 @@ function prepareToolsAndToolChoice(
     type: "function",
     function: {
       name: tool.name,
+      // @ts-expect-error - description is not a property of tool
       description: tool.description,
+      // @ts-expect-error - parameters is not a property of tool
       parameters: tool.parameters,
     },
   }));

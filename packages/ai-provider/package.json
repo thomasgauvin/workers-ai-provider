@@ -18,10 +18,11 @@
     "build": "rm -rf dist && tsup src/index.ts --dts --sourcemap --format esm --target es2020"
   },
   "dependencies": {
-    "@ai-sdk/provider": "^0.0.14",
-    "ai": "^3.2.40",
+    "@ai-sdk/provider": "^1.0.2",
+    "@ai-sdk/provider-utils": "^1.0.22",
+    "ai": "^4.0.14",
     "fetch-event-stream": "^0.1.5",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "files": [
     "dist",
@@ -40,6 +41,6 @@
     "serverless"
   ],
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20240725.0"
+    "@cloudflare/workers-types": "^4.20241205.0"
   }
 }

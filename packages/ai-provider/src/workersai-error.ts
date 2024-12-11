@@ -1,4 +1,8 @@
-import { createJsonErrorResponseHandler } from "@ai-sdk/provider-utils";
+import {
+  createJsonErrorResponseHandler,
+  type ResponseHandler,
+} from "@ai-sdk/provider-utils";
+import type { APICallError } from "ai";
 import { z } from "zod";
 
 const workersAIErrorDataSchema = z.object({
@@ -11,7 +15,8 @@ const workersAIErrorDataSchema = z.object({
 
 export type WorkersAIErrorData = z.infer<typeof workersAIErrorDataSchema>;
 
-export const workersAIFailedResponseHandler = createJsonErrorResponseHandler({
-  errorSchema: workersAIErrorDataSchema,
-  errorToMessage: (data) => data.message,
-});
+export const workersAIFailedResponseHandler: ResponseHandler<APICallError> =
+  createJsonErrorResponseHandler({
+    errorSchema: workersAIErrorDataSchema,
+    errorToMessage: (data) => data.message,
+  });
