@@ -17,8 +17,8 @@ export default {
       const { messages } = await request.json<{
         messages: Parameters<typeof convertToCoreMessages>[0];
       }>();
-      const result = await streamText({
-        model: workersai("@cf/meta/llama-3-8b-instruct"),
+      const result = streamText({
+        model: workersai("@cf/meta/llama-3.3-70b-instruct-fp8-fast"),
         messages: convertToCoreMessages(messages),
       });
       return result.toDataStreamResponse({
